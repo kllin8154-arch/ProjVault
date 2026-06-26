@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: maven
+
+      - name: Build jar
+        shell: bash
+        run: |
+          chmod +x ./mvnw
+          ./mvnw -q clean package
+
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ProjVault ${{ github.ref_name }}
+          prerelease: true
+          generate_release_notes: true
+          files: target/projvault-0.1.0-SNAPSHOT.jar
+          fail_on_unmatched_files: true
