@@ -136,28 +136,6 @@ PROJVAULT_PDF_FONT_PATH
 
 `PROJVAULT_SECRETS_MASTER_KEY` 必须是 Base64 编码的 32 字节密钥。不要提交生成的密钥、本地 H2 数据库、日志、真实项目资料或客户文档。
 
-## 开源边界
-
-公开仓库保留产品代码、SQL 迁移脚本、样例用例、截图和面向用户的文档。
-
-以下本地或内部建设资料明确不进入开源仓库：
-
-- `z/`：建设记录、实验记录、各种实施报告
-- `AGENTS.md` 和 `CLAUDE.md`：本地 Agent 约束和私有项目指令
-- `docs/*.md`：闭环验证记录
-- `data/`：H2 数据库、本地项目数据、生成的加密主密钥
-- `logs/`：本地运行日志
-- GraphRAG 实验生成物
-
-发布或打 tag 前建议运行：
-
-```powershell
-.\mvnw.cmd -q test
-rg -n --hidden --glob '!target/**' --glob '!data/**' --glob '!logs/**' --glob '!z/**' "(?i)(api[_-]?key|secret|password|token|authorization|bearer|sk-[a-z0-9])" .
-```
-
-逐条人工确认命中项。占位示例可以保留，真实密钥不能提交。
-
 ## 许可证
 
 本项目使用 Apache License 2.0，详见 [LICENSE](LICENSE)。

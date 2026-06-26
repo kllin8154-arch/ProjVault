@@ -136,28 +136,6 @@ PROJVAULT_PDF_FONT_PATH
 
 `PROJVAULT_SECRETS_MASTER_KEY` must be a Base64-encoded 32-byte key. Do not commit generated keys, local H2 databases, logs, uploaded project files or real customer documents.
 
-## Open Source Boundary
-
-The public repository keeps product code, SQL migration scripts, sample cases, screenshots and user-facing documentation.
-
-The following local/internal materials are intentionally excluded:
-
-- `z/`: construction notes, experiment records and implementation reports
-- `AGENTS.md` and `CLAUDE.md`: local agent constraints and private project instructions
-- `docs/*.md`: internal closed-loop verification records
-- `data/`: H2 databases, local project data and generated encryption keys
-- `logs/`: local runtime logs
-- generated GraphRAG experiment artifacts
-
-Before publishing or tagging a release, run:
-
-```powershell
-.\mvnw.cmd -q test
-rg -n --hidden --glob '!target/**' --glob '!data/**' --glob '!logs/**' --glob '!z/**' "(?i)(api[_-]?key|secret|password|token|authorization|bearer|sk-[a-z0-9])" .
-```
-
-Review every match manually. Placeholder examples are acceptable; real secrets are not.
-
 ## License
 
 This project is released under the Apache License 2.0. See [LICENSE](LICENSE).
