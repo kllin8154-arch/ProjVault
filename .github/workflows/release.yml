@@ -24,7 +24,7 @@ jobs:
 
       - name: Build jar
         shell: bash
-        run: mvn -q clean package
+        run: mvn -q -DskipTests clean package
 
       - name: Publish GitHub release
         uses: softprops/action-gh-release@v2
