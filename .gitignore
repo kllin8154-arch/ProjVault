@@ -1,0 +1,65 @@
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### ProjVault local runtime data ###
+data/
+logs/
+z/
+AGENTS.md
+CLAUDE.md
+server*.log
+*.log
+*.trace.db
+*.lock.db
+*.mv.db
+
+### Internal project construction records ###
+docs/*.md
+!docs/*.png
+
+### Secrets and local environment ###
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.jks
+credentials.json
+secrets.json
+
+### Generated GraphRAG prototype artifacts ###
+graphrag-proto/graph.html
+graphrag-proto/extraction.json
+graphrag-proto/communities.json
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "PKC-Q001",
+    "role": "业务用户",
+    "question": "超出合同外的功能点有哪些",
+    "modes": ["standard", "local", "global"],
+    "expectedFirstFileContains": "超出合同外的功能点.xlsx",
+    "mustContainAny": ["POI", "叠加分析", "拓扑分析", "虚拟钻孔", "动态投影"],
+    "minCitations": 1,
+    "minEvidence": 1
+  },
+  {
+    "id": "PKC-Q002",
+    "role": "审计用户",
+    "question": "虚拟钻孔数据输出是谁新做的",
+    "modes": ["standard", "local", "global"],
+    "expectedAnyCitationFileContains": "超出合同外的功能点.xlsx",
+    "mustContainAny": ["智博", "虚拟钻孔", "数据输出"],
+    "minCitations": 1,
+    "minEvidence": 1
+  },
+  {
+    "id": "PKC-Q003",
+    "role": "测试用户",
+    "question": "哪些功能是无接口或无功能的",
+    "modes": ["standard", "local", "global"],
+    "expectedAnyCitationFileContains": "超出合同外的功能点.xlsx",
+    "mustContainAny": ["无接口", "拓扑分析", "动态投影", "天际线"],
+    "minCitations": 1,
+    "minEvidence": 1
+  }
+]

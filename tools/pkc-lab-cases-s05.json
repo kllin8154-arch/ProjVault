@@ -1,0 +1,32 @@
+[
+  {
+    "id": "LAB-S05-Q001",
+    "role": "项目经理",
+    "question": "被放在原型目录下的付款补充说明里，第二期付款为什么会暂停？",
+    "modes": ["standard", "local", "global"],
+    "expectedAnyCitationFileContains": "13错放-原型目录-付款补充说明.md",
+    "mustContainAny": ["甲方确认邮件", "补充协议", "暂停", "第二期"],
+    "minCitations": 1,
+    "minEvidence": 1
+  },
+  {
+    "id": "LAB-S05-Q002",
+    "role": "审计顾问",
+    "question": "跨分类会议纪要同时涉及哪些事项？",
+    "modes": ["standard", "local", "global"],
+    "expectedAnyCitationFileContains": "14跨分类-会议纪要-变更付款风险.md",
+    "mustContainAny": ["合同外变更", "付款", "风险", "移动端离线填报"],
+    "minCitations": 1,
+    "minEvidence": 1
+  },
+  {
+    "id": "LAB-S05-Q003",
+    "role": "资料员",
+    "question": "重复归档的合同范围副本是否改变了M1范围？",
+    "modes": ["standard", "local", "global"],
+    "expectedAnyCitationFileContains": "15重复归档-合同范围终版副本.md",
+    "mustContainAny": ["不改变", "M1", "移动端离线填报", "不进入"],
+    "minCitations": 1,
+    "minEvidence": 1
+  }
+]

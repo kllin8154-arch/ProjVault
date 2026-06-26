@@ -1,0 +1,42 @@
+[
+  {
+    "id": "LAB-S04-Q001",
+    "role": "项目经理",
+    "question": "项目经理工作台原型里点击合同外变更数量后应该进入哪里？",
+    "modes": ["standard", "local", "global"],
+    "expectedAnyCitationFileContains": "07原型-html-项目经理工作台.html",
+    "mustContainAll": ["CR-2026-00610-01", "详情"],
+    "minCitations": 1,
+    "minEvidence": 1
+  },
+  {
+    "id": "LAB-S04-Q002",
+    "role": "审计顾问",
+    "question": "第二期付款节点是什么，责任部门是谁？",
+    "modes": ["standard", "local", "global"],
+    "expectedAnyCitationFileContains": "08付款节点台账.xlsx",
+    "mustContainAny": ["第二期", "M2", "项目管理中心", "30%"],
+    "minCitations": 1,
+    "minEvidence": 1
+  },
+  {
+    "id": "LAB-S04-Q003",
+    "role": "技术负责人",
+    "question": "技术方案里说明哪些系统不会被直接接管？",
+    "modes": ["standard", "local", "global"],
+    "expectedAnyCitationFileContains": "09技术方案-接口边界.docx",
+    "mustContainAny": ["财务系统", "OA", "BIM"],
+    "minCitations": 1,
+    "minEvidence": 1
+  },
+  {
+    "id": "LAB-S04-Q004",
+    "role": "验收负责人",
+    "question": "PDF验收说明要求AI回答必须满足什么可信度口径？",
+    "modes": ["standard", "local", "global"],
+    "expectedAnyCitationFileContains": "10验收说明-可信度口径.pdf",
+    "mustContainAny": ["cited source files", "evidence", "cannot only give a conclusion", "no-evidence"],
+    "minCitations": 1,
+    "minEvidence": 1
+  }
+]

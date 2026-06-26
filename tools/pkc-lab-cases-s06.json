@@ -1,0 +1,12 @@
+[
+  {
+    "id": "LAB-S06-Q001",
+    "role": "项目经理",
+    "question": "正式部署数据库地址是什么？示例里的 192.168.1.1 能不能作为真实配置？",
+    "modes": ["standard", "local", "global"],
+    "expectedAnyCitationFileContains": "16示例配置噪音与真实部署.md",
+    "mustContainAny": ["192.168.30.11", "不能", "示例", "正式部署"],
+    "minCitations": 1,
+    "minEvidence": 1
+  }
+]

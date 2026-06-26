@@ -1,0 +1,32 @@
+[
+  {
+    "id": "LAB-S01-Q001",
+    "role": "项目经理",
+    "question": "星河档案平台的项目经理和技术负责人分别是谁？",
+    "modes": ["standard", "local", "global"],
+    "expectedAnyCitationFileContains": "00项目章程-星河档案平台.md",
+    "mustContainAll": ["赵岚", "周启明"],
+    "minCitations": 1,
+    "minEvidence": 1
+  },
+  {
+    "id": "LAB-S01-Q002",
+    "role": "项目经理",
+    "question": "M1阶段要交付哪些内容？",
+    "modes": ["standard", "local", "global"],
+    "expectedAnyCitationFileContains": "00项目章程-星河档案平台.md",
+    "mustContainAny": ["合同", "需求说明", "会议纪要", "图纸目录", "基础检索"],
+    "minCitations": 1,
+    "minEvidence": 1
+  },
+  {
+    "id": "LAB-S01-Q003",
+    "role": "审计顾问",
+    "question": "哪些事项明确不在首版合同范围？",
+    "modes": ["standard", "local", "global"],
+    "expectedAnyCitationFileContains": "01合同范围-v1.md",
+    "mustContainAny": ["投标文件", "财务系统", "BIM"],
+    "minCitations": 1,
+    "minEvidence": 1
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "LAB-S03-Q001",
+    "role": "项目经理",
+    "question": "当前最高合同风险是什么，为什么？",
+    "modes": ["standard", "local", "global"],
+    "expectedAnyCitationFileContains": "05原型说明-项目经理工作台-v1.md",
+    "mustContainAny": ["移动端离线填报", "甲方确认邮件", "补充协议"],
+    "minCitations": 1,
+    "minEvidence": 1
+  },
+  {
+    "id": "LAB-S03-Q002",
+    "role": "资料员",
+    "question": "当前合同范围的有效版是哪一份，它取代了哪些版本？",
+    "modes": ["standard", "local", "global"],
+    "expectedAnyCitationFileContains": "01合同范围-终版.md",
+    "mustContainAll": ["终版", "v1", "v2"],
+    "minCitations": 1,
+    "minEvidence": 1
+  },
+  {
+    "id": "LAB-S03-Q003",
+    "role": "测试负责人",
+    "question": "第一轮验收发现了哪些问题，责任人是谁？",
+    "modes": ["standard", "local", "global"],
+    "expectedAnyCitationFileContains": "06验收问题清单-第一轮.md",
+    "mustContainAny": ["版本族", "证据", "知识图谱", "许晴", "周启明"],
+    "minCitations": 1,
+    "minEvidence": 1
+  }
+]

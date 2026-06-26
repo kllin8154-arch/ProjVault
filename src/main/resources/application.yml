@@ -1,0 +1,96 @@
+spring:
+  application:
+    name: ProjVault
+  datasource:
+    # 默认（开发）：H2 文件库，零依赖启动；生产切 prod profile 用 MySQL
+    url: jdbc:h2:file:./data/projvault;MODE=MySQL;DATABASE_TO_LOWER=TRUE;AUTO_SERVER=TRUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+server:
+  port: 8090
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+
+projvault:
+  security:
+    enabled: true
+    session-hours: 12
+    bootstrap:
+      username: ${PROJVAULT_ADMIN_USERNAME:admin}
+      password: ${PROJVAULT_ADMIN_PASSWORD:admin123}
+    secrets:
+      # 生产环境应提供 Base64 编码的 32 字节主密钥；开发环境会生成仅当前系统用户可读的本机密钥文件。
+      master-key: ${PROJVAULT_SECRETS_MASTER_KEY:}
+      key-file: ${PROJVAULT_SECRETS_KEY_FILE:./data/.projvault-secrets.key}
+  ai:
+    # 可选值：mock / openai-compatible / anthropic
+    provider: openai-compatible
+    language: zh
+
+    # ── OpenAI 兼容格式（provider=openai-compatible 时生效） ──────────────────
+    # 切换 DeepSeek：base-url=https://api.deepseek.com/v1  model=deepseek-chat
+    # 切换 Qwen：    base-url=https://dashscope.aliyuncs.com/compatible-mode/v1  model=qwen-plus
+    # 切换 Ollama：  base-url=http://localhost:11434/v1  model=qwen2.5:7b  api-key=ollama
+    # 切换 OpenAI：  base-url=https://api.openai.com/v1  model=gpt-4o-mini
+    openai-compatible:
+      base-url: https://api.deepseek.com/v1
+      api-key: ${LLM_API_KEY:}
+      model: deepseek-v4-pro
+      max-tokens: 4096
+      temperature: 0.3
+      timeout-seconds: 60
+
+    # ── Anthropic Claude（provider=anthropic 时生效） ─────────────────────────
+    # 常用 model：claude-3-haiku-20240307 / claude-3-5-sonnet-20241022
+    anthropic:
+      api-key: ${ANTHROPIC_API_KEY:}
+      model: claude-3-haiku-20240307
+      max-tokens: 4096
+      timeout-seconds: 60
+
+  graphrag:
+    # 实体关系抽取（GraphRAG Local 检索）。默认关闭，避免拖慢普通扫描；
+    # 开启后每次扫描对前 max-chunks 个分块调用模型抽取实体/关系入知识图谱。
+    entity-extraction:
+      enabled: false
+      max-chunks: 80
+  scan:
+    # 扫描任务使用有界队列，避免多项目和超大文件同时耗尽内存。
+    large-file-threshold-bytes: 268435456
+  pdf:
+    # Windows / Linux / macOS 均会自动发现常见中文字体，也可用环境变量覆盖。
+    font-path: ${PROJVAULT_PDF_FONT_PATH:}
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    url: jdbc:mysql://localhost:3306/projvault?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: projvault
+    password: ${PROJVAULT_DB_PASSWORD:}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  h2:
+    console:
+      enabled: false
+projvault:
+  security:
+    secrets:
+      # 生产环境不允许使用自动生成的本机密钥，避免容器重建后密文失效。
+      master-key: ${PROJVAULT_SECRETS_MASTER_KEY}

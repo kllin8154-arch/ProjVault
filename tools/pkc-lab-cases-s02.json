@@ -1,0 +1,33 @@
+[
+  {
+    "id": "LAB-S02-Q001",
+    "role": "项目经理",
+    "question": "移动端离线填报是谁提出的，当前是否属于合同内范围？",
+    "modes": ["standard", "local", "global"],
+    "expectedAnyCitationFileContains": "04合同外变更清单-v1.md",
+    "mustContainAll": ["韩亦", "否"],
+    "mustContainAny": ["合同外", "不在合同", "不属于"],
+    "minCitations": 1,
+    "minEvidence": 1
+  },
+  {
+    "id": "LAB-S02-Q002",
+    "role": "审计顾问",
+    "question": "CR-2026-00610-01需要哪些证据才能作为付款依据？",
+    "modes": ["standard", "local", "global"],
+    "expectedAnyCitationFileContains": "03会议纪要-2026-06-10-范围评审.md",
+    "mustContainAny": ["报价单", "会议纪要", "甲方确认邮件"],
+    "minCitations": 1,
+    "minEvidence": 1
+  },
+  {
+    "id": "LAB-S02-Q003",
+    "role": "技术负责人",
+    "question": "移动端离线填报会带来哪些技术影响？",
+    "modes": ["standard", "local", "global"],
+    "expectedAnyCitationFileContains": "04合同外变更清单-v1.md",
+    "mustContainAny": ["本地缓存", "冲突合并", "草稿箱", "登录态"],
+    "minCitations": 1,
+    "minEvidence": 1
+  }
+]
