@@ -24,9 +24,7 @@ jobs:
 
       - name: Build jar
         shell: bash
-        run: |
-          chmod +x ./mvnw
-          ./mvnw -q clean package
+        run: mvn -q clean package
 
       - name: Publish GitHub release
         uses: softprops/action-gh-release@v2
